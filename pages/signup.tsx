@@ -1,10 +1,16 @@
+import Head from 'next/head';
 import AppLayout from '@components/AppLayout';
 
 function Signup() {
   return (
-    <AppLayout>
-      <div>Signup</div>
-    </AppLayout>
+    <>
+      <Head>
+        <title>Twitter || Signup</title>
+      </Head>
+      <AppLayout>
+        <div>Signup</div>
+      </AppLayout>
+    </>
   );
 }
 
