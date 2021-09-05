@@ -1,5 +1,11 @@
+import AppLayout from '@components/AppLayout';
+
 function Signup() {
-  return <div>Signup</div>;
+  return (
+    <AppLayout>
+      <div>Signup</div>
+    </AppLayout>
+  );
 }
 
 export default Signup;
