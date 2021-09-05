@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Menu } from 'antd';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -7,17 +8,23 @@ type LayoutProps = {
 function AppLayout({ children }: LayoutProps) {
   return (
     <div>
-      <div>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        <Link href="/profile">
-          <a>Profile</a>
-        </Link>
-        <Link href="/signup">
-          <a>Signup</a>
-        </Link>
-      </div>
+      <Menu mode="horizontal">
+        <Menu.Item key="0">
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="1">
+          <Link href="/profile">
+            <a>Profile</a>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link href="/signup">
+            <a>Signup</a>
+          </Link>
+        </Menu.Item>
+      </Menu>
       {children}
     </div>
   );
