@@ -7,18 +7,22 @@
 ## Folder Structure
 
 ```
- 📦components
- 📦pages
- 📦public
- 📦styles
- 📦types
- 📜.gitignore
- 📜next-env.d.ts
- 📜next.config.js
- 📜package-lock.json
- 📜package.json
- 📜README.md
- 📜tsconfig.json
+📦components
+ ┗ 📜AppLayout.tsx
+📦pages
+ ┣ 📜_app.tsx
+ ┗ 📜index.tsx
+📦public
+📦styles
+📦types
+📜.eslintrc
+📜.gitignore
+📜next-env.d.ts
+📜next.config.js
+📜package-lock.json
+📜package.json
+📜README.md
+📜tsconfig.json
 ```
 
 <br />
@@ -30,13 +34,20 @@
 
 ```json
 "dependencies": {
-  "next": "^9.5.5",
+  "@ant-design/icons": "^4.6.4",
+  "antd": "^4.16.13",
+  "next": "^11.1.2",
   "react": "^17.0.2",
-  "react-dom": "^17.0.2"
+  "react-dom": "^17.0.2",
+  "styled-components": "^5.3.1"
 },
 "devDependencies": {
   "@types/node": "^16.7.10",
   "@types/react": "^17.0.19",
+  "eslint": "^7.32.0",
+  "eslint-plugin-import": "^2.24.2",
+  "eslint-plugin-react": "^7.25.1",
+  "eslint-plugin-react-hooks": "^4.2.0",
   "fork-ts-checker-webpack-plugin": "^6.3.3",
   "typescript": "^4.4.2"
 },
