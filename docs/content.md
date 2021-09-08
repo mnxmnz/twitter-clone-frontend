@@ -12,7 +12,7 @@
 
 ### HTML
 
-<br />
+<hr />
 
 #### a (noreferrer noopener)
 
@@ -27,12 +27,11 @@
 📄 [Blog - [SEO] target="\_blank" 좀 더 알고 사용하자(noopener, norefferrer, nofollow 차이점에 대해서)](https://webruden.tistory.com/262)
 
 <br />
-<hr />
 <br />
 
 ### CSS
 
-<br />
+<hr />
 
 #### vertical-align
 
@@ -47,12 +46,11 @@
 📄 [W3Schools - CSS](https://www.w3schools.com/cssref/pr_pos_vertical-align.asp)
 
 <br />
-<hr />
 <br />
 
 ### React
 
-<br />
+<hr />
 
 #### children (TypeScript)
 
@@ -118,12 +116,11 @@ const onChangeId = useCallback(e => {
 📄 [Blog - React 의 성능을 조금 이라도 올려보자 (Performance Optimize)](https://pks2974.medium.com/react-%EC%9D%98-%EC%84%B1%EB%8A%A5%EC%9D%84-%EC%A1%B0%EA%B8%88-%EC%9D%B4%EB%9D%BC%EB%8F%84-%EC%98%AC%EB%A0%A4%EB%B3%B4%EC%9E%90-performance-optimize-f1a51b8c406c)
 
 <br />
-<hr />
 <br />
 
 ### Next
 
-<br />
+<hr />
 
 #### Link tag
 
@@ -142,12 +139,11 @@ const onChangeId = useCallback(e => {
 📄 [Stack Overflow - Next.JS "Link" vs "router.push()" vs "a" tag](https://stackoverflow.com/questions/65086108/next-js-link-vs-router-push-vs-a-tag)
 
 <br />
-<hr />
 <br />
 
 ### Dev
 
-<br />
+<hr />
 
 #### Gutter
 
