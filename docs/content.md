@@ -52,6 +52,8 @@
 
 ### React
 
+<br />
+
 #### children (TypeScript)
 
 - TypeScript 환경에서 React children을 사용할 때 children은 `ReactNode` 타입
@@ -87,6 +89,33 @@ const onChangeId = useCallback(e => {
 📄 [React docs - Hooks API](https://ko.reactjs.org/docs/hooks-reference.html#usecallback)
 
 📄 [Blog - React.memo, useCallback 사용으로 렌더링 최적화 하기(feat.React-Native,Redux)](https://velog.io/@shin6403/React.memo-useCallback-사용으로-렌더링-최적화-하기feat.React-NativeRedux)
+
+<br />
+
+#### Re-rendering
+
+- 객체는 새로 생성될 때마다 다른 것으로 인식 `{} === {} // false`
+
+- 새로운 객체(style)를 추가하면 Virtual DOM에서 객체가 달라진 것으로 인식하고 해당 div 전체 리렌더링
+
+- div style 태그 대신 styled component 사용하기
+
+```tsx
+<div style={{ marginTop: '10px' }}>
+  <Button type="primary" htmlType="submit" loading={false}>
+    Login
+  </Button>
+  <Link href="/signup">
+    <a>Signup</a>
+  </Link>
+</div>
+```
+
+📄 [Blog - [번역] React를 본격적으로 하기 전 알면 좋은 6가지](https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/)
+
+📄 [Blog - React 렌더링 이해 및 최적화 (With Hook)](https://medium.com/vingle-tech-blog/react-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f255d6569849)
+
+📄 [Blog - React 의 성능을 조금 이라도 올려보자 (Performance Optimize)](https://pks2974.medium.com/react-%EC%9D%98-%EC%84%B1%EB%8A%A5%EC%9D%84-%EC%A1%B0%EA%B8%88-%EC%9D%B4%EB%9D%BC%EB%8F%84-%EC%98%AC%EB%A0%A4%EB%B3%B4%EC%9E%90-performance-optimize-f1a51b8c406c)
 
 <br />
 <hr />
