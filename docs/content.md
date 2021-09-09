@@ -90,13 +90,17 @@ const onChangeId = useCallback(e => {
 
 <br />
 
-#### Re-rendering
+#### Re-rendering (style)
 
 - 객체는 새로 생성될 때마다 다른 것으로 인식 `{} === {} // false`
 
 - 새로운 객체(style)를 추가하면 Virtual DOM에서 객체가 달라진 것으로 인식하고 해당 div 전체 리렌더링
 
-- div style 태그 대신 styled component 사용하기
+- div style 객체 추가 대신 styled component 사용하기
+
+<br />
+
+**style 객체 추가 예시**
 
 ```tsx
 <div style={{ marginTop: '10px' }}>
@@ -108,6 +112,58 @@ const onChangeId = useCallback(e => {
   </Link>
 </div>
 ```
+
+<br />
+
+**styled component 예시**
+
+```tsx
+<ButtonWrapper>
+  <Button type="primary" htmlType="submit" loading={false}>
+    Login
+  </Button>
+  <Link href="/signup">
+    <a>Signup</a>
+  </Link>
+</ButtonWrapper>;
+
+const ButtonWrapper = styled.div`
+  margin-top: 10px;
+`;
+```
+
+<br />
+
+**styled component antd 적용 예시**
+
+```tsx
+const SearchInput = styled(Input.Search)`
+  vertical-align: middle;
+`;
+```
+
+<br />
+
+- styled component 대신 useMemo를 사용할 수 있음
+
+**useMemo 예시**
+
+```tsx
+const style = useMemo(() => ({ marginTop: 10 }), []);
+
+<div style={style}>
+  <Button type="primary" htmlType="submit" loading={false}>
+    Login
+  </Button>
+  <Link href="/signup">
+    <a>Signup</a>
+  </Link>
+</div>;
+```
+
+<br />
+
+📄 [React docs - Hooks API](https://ko.reactjs.org/docs/hooks-reference.html#usememo)
 
 📄 [Blog - [번역] React를 본격적으로 하기 전 알면 좋은 6가지](https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/)
 
