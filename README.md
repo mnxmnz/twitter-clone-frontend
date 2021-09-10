@@ -2,7 +2,7 @@
 
 #### [[리뉴얼] React로 NodeBird SNS 만들기](https://www.inflearn.com/course/%EB%85%B8%EB%93%9C%EB%B2%84%EB%93%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%A6%AC%EB%89%B4%EC%96%BC) 강의 실습 코드 정리 레포입니다.
 
-#### 강의를 통해 새로 배운 점을 [docs/content Markdown 파일](https://github.com/mnxmnz/Twitter-Clone-Frontend/blob/main/docs/content.md)에 정리했습니다.
+#### 강의를 통해 새로 배운 점을 [docs 폴더 Markdown 파일](https://github.com/mnxmnz/Twitter-Clone-Frontend/blob/main/docs/content.md)에 정리했습니다.
 
 <br />
 
@@ -10,13 +10,18 @@
 
 ```
 📦components
- ┗ 📜AppLayout.tsx
+ ┣ 📜AppLayout.tsx
+ ┣ 📜LoginForm.tsx
+ ┗ 📜UserProfile.tsx
+ 📦docs
+ ┗ 📜content.md
 📦pages
  ┣ 📜_app.tsx
- ┗ 📜index.tsx
+ ┣ 📜index.tsx
+ ┣ 📜profile.tsx
+ ┗ 📜signup.tsx
 📦public
 📦styles
-📦types
 📜.eslintrc
 📜.gitignore
 📜next-env.d.ts
