@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useMemo, useCallback } from 'react';
 import { Card, Avatar, Button } from 'antd';
 import styled from 'styled-components';
 
@@ -7,29 +7,34 @@ type LoginFormProps = {
 };
 
 function UserProfile({ setIsLoggedIn }: LoginFormProps) {
+  const actions = useMemo(
+    () => [
+      <div key="twit">
+        Twit
+        <br />0
+      </div>,
+      <div key="followers">
+        Followers
+        <br />0
+      </div>,
+      <div key="following">
+        Following
+        <br />0
+      </div>,
+    ],
+    [],
+  );
+
+  const avatar = useMemo(() => <Avatar>MJ</Avatar>, []);
+
   const onLogOut = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
 
   return (
     <>
-      <CardWrapper
-        actions={[
-          <div key="twit">
-            Twit
-            <br />0
-          </div>,
-          <div key="followers">
-            Followers
-            <br />0
-          </div>,
-          <div key="following">
-            Following
-            <br />0
-          </div>,
-        ]}
-      >
-        <Card.Meta avatar={<Avatar>MJ</Avatar>} title="MinJi" />
+      <CardWrapper actions={actions}>
+        <Card.Meta avatar={avatar} title="MinJi" />
       </CardWrapper>
       <ButtonWrapper>
         <Button onClick={onLogOut}>Logout</Button>
