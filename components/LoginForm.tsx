@@ -26,7 +26,7 @@ function LoginForm({ setIsLoggedIn }: LoginFormProps) {
   return (
     <FromWrapper onFinish={onSubmitForm}>
       <div>
-        <label htmlFor="user-id">ID</label>
+        <label htmlFor="user-id">E-mail</label>
         <br />
         <Input name="user-id" value={id} onChange={onChangeId} required />
       </div>
@@ -40,7 +40,9 @@ function LoginForm({ setIsLoggedIn }: LoginFormProps) {
           Login
         </Button>
         <Link href="/signup">
-          <a>Signup</a>
+          <Button loading={false}>
+            <a>Signup</a>
+          </Button>
         </Link>
       </ButtonWrapper>
     </FromWrapper>
@@ -48,11 +50,12 @@ function LoginForm({ setIsLoggedIn }: LoginFormProps) {
 }
 
 const FromWrapper = styled(Form)`
-  padding: 10px;
+  padding: 20px;
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
+  text-align: center;
 `;
 
 export default LoginForm;

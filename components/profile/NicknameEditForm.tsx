@@ -10,7 +10,7 @@ function NicknameEditForm() {
 }
 
 const FormWrapper = styled(Form)`
-  margin-bottom: 20px;
+  margin-top: 10px;
   border: 1px solid #d9d9d9;
   padding: 20px;
 `;

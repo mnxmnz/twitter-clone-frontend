@@ -11,11 +11,11 @@ type ProfileProps = {
 function FollowList({ header, data }: ProfileProps) {
   const ItemComponent = useCallback(item => {
     return (
-      <List.Item style={{ marginTop: 20 }}>
+      <ListItemWrapper>
         <Card actions={[<StopOutlined key="stop" />]}>
           <Card.Meta description={item.nickname} />
         </Card>
-      </List.Item>
+      </ListItemWrapper>
     );
   }, []);
 
@@ -37,7 +37,12 @@ function FollowList({ header, data }: ProfileProps) {
 }
 
 const ListWrapper = styled(List)`
-  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 10px;
+`;
+
+const ListItemWrapper = styled(List.Item)`
+  margin-top: 20px;
 `;
 
 const LoadWrapper = styled.div`

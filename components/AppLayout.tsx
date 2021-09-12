@@ -28,13 +28,8 @@ function AppLayout({ children }: LayoutProps) {
         <Menu.Item key="2">
           <SearchInput enterButton />
         </Menu.Item>
-        <Menu.Item key="3">
-          <Link href="/signup">
-            <a>Signup</a>
-          </Link>
-        </Menu.Item>
       </Menu>
-      <Row gutter={8}>
+      <Row>
         <Col xs={24} md={6}>
           {isLoggedIn ? (
             <UserProfile setIsLoggedIn={setIsLoggedIn} />
@@ -42,21 +37,40 @@ function AppLayout({ children }: LayoutProps) {
             <LoginForm setIsLoggedIn={setIsLoggedIn} />
           )}
         </Col>
-        <Col xs={24} md={12}>
+        <ChildrenWrapper xs={24} md={18}>
           {children}
-        </Col>
-        <Col xs={24} md={6}>
+        </ChildrenWrapper>
+      </Row>
+      <Footer>
+        <Col xs={24} md={24}>
           <a href="https://github.com/mnxmnz" target="_blank" rel="noreferrer noopener">
             Made by MinJi
           </a>
         </Col>
-      </Row>
+      </Footer>
     </div>
   );
 }
 
 const SearchInput = styled(Input.Search)`
   vertical-align: middle;
+`;
+
+const ChildrenWrapper = styled(Col)`
+  padding: 20px;
+`;
+
+const Footer = styled(Row)`
+  position: fixed;
+  bottom: 0;
+  padding: 2px;
+  border-top: 1px solid #d9d9d9;
+  background-color: white;
+  min-width: 100%;
+  max-width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 `;
 
 export default AppLayout;
