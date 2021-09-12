@@ -1,23 +1,17 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import Link from 'next/link';
 import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
+import useInput from 'hooks/useInput';
 
 type LoginFormProps = {
   setIsLoggedIn: (isLoggedIn: boolean) => void;
 };
 
 function LoginForm({ setIsLoggedIn }: LoginFormProps) {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+  const [id, onChangeId] = useInput('');
 
-  const onChangeId = useCallback(e => {
-    setId(e.target.value);
-  }, []);
-
-  const onChangePassword = useCallback(e => {
-    setPassword(e.target.value);
-  }, []);
+  const [password, onChangePassword] = useInput('');
 
   const onSubmitForm = useCallback(() => {
     setIsLoggedIn(true);
@@ -25,16 +19,16 @@ function LoginForm({ setIsLoggedIn }: LoginFormProps) {
 
   return (
     <FromWrapper onFinish={onSubmitForm}>
-      <div>
+      <InputWrapper>
         <label htmlFor="user-id">E-mail</label>
         <br />
         <Input name="user-id" value={id} onChange={onChangeId} required />
-      </div>
-      <div>
+      </InputWrapper>
+      <InputWrapper>
         <label htmlFor="user-password">Password</label>
         <br />
         <Input name="user-password" type="password" value={password} onChange={onChangePassword} required />
-      </div>
+      </InputWrapper>
       <ButtonWrapper>
         <Button type="primary" htmlType="submit" loading={false}>
           Login
@@ -51,6 +45,10 @@ function LoginForm({ setIsLoggedIn }: LoginFormProps) {
 
 const FromWrapper = styled(Form)`
   padding: 20px;
+`;
+
+const InputWrapper = styled.div`
+  margin-bottom: 10px;
 `;
 
 const ButtonWrapper = styled.div`
