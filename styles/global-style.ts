@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${reset}
 
   * {
@@ -9,10 +9,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: Noto Sans KR;
+    font-family: NotoSansKR-Light;
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap');
+  @font-face {
+    font-family: "NotoSansKR-Light";
+    font-weight: normal;
+    font-style: normal;
+    src: url("/fonts/NotoSansKR-Light.otf") format("truetype");
+  }
 `;
 
 export default GlobalStyle;
