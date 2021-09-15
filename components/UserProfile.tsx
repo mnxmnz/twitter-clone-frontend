@@ -1,12 +1,10 @@
 import { useMemo, useCallback } from 'react';
 import { Card, Avatar, Button } from 'antd';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { logOutAction } from 'reducers/user';
 
-type LoginFormProps = {
-  setIsLoggedIn: (isLoggedIn: boolean) => void;
-};
-
-function UserProfile({ setIsLoggedIn }: LoginFormProps) {
+function UserProfile() {
   const actions = useMemo(
     () => [
       <div key="twit">
@@ -27,8 +25,10 @@ function UserProfile({ setIsLoggedIn }: LoginFormProps) {
 
   const avatar = useMemo(() => <Avatar>MJ</Avatar>, []);
 
+  const dispatch = useDispatch();
+
   const onLogOut = useCallback(() => {
-    setIsLoggedIn(false);
+    dispatch(logOutAction());
   }, []);
 
   return (

@@ -1,16 +1,22 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, Input, Row, Col } from 'antd';
 import styled from 'styled-components';
 import UserProfile from './UserProfile';
 import LoginForm from './LoginForm';
+import { useSelector } from 'react-redux';
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
+type InitialState = {
+  user: {
+    isLoggedIn: boolean;
+  };
+};
+
 function AppLayout({ children }: LayoutProps) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useSelector((state: InitialState) => state.user.isLoggedIn);
 
   return (
     <div>
@@ -31,11 +37,7 @@ function AppLayout({ children }: LayoutProps) {
       </Menu>
       <Row>
         <Col xs={24} md={6}>
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
-          )}
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
         <ChildrenWrapper xs={24} md={18}>
           {children}

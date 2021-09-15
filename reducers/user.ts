@@ -22,7 +22,12 @@ const dummyUser = {
   Followers: [],
 };
 
-export const logInAction = (data: null) => {
+type LogInProps = {
+  id: string;
+  password: string;
+};
+
+export const logInAction = (data: LogInProps) => {
   return {
     type: LOG_IN,
     data,
@@ -57,6 +62,7 @@ export default (state = initialState, action: AnyAction) => {
         ...state,
         isLoggedIn: false,
         user: null,
+        loginData: null,
       };
     }
     case SIGN_UP: {
@@ -65,10 +71,7 @@ export default (state = initialState, action: AnyAction) => {
         signUpData: action.data,
       };
     }
-    default: {
-      return {
-        ...state,
-      };
-    }
+    default:
+      return state;
   }
 };
