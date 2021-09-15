@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   index: (state = {}, action: AnyAction) => {
     switch (action.type) {
       case HYDRATE:
-        console.log('HYDRATE', action);
+        console.log('Reducers - HYDRATE', action);
         return { ...state, ...action.payload };
       default:
         return state;
@@ -19,3 +19,5 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+export type RootState = ReturnType<typeof rootReducer>;
