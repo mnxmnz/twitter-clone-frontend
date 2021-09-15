@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "NotoSansKR-Light";
     font-weight: normal;
     font-style: normal;
-    src: url("/fonts/NotoSansKR-Light.otf") format("truetype");
+    src: url("fonts/NotoSansKR-Light.otf") format("truetype");
   }
 `;
 
