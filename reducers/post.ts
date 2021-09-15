@@ -13,13 +13,7 @@ export const initialState = {
       content: '첫 번째 게시글',
       Images: [
         {
-          src: 'https://bookthumb-phinf.pstatic.net/cover/137/995/13799585.jpg?udate=20180726',
-        },
-        {
-          src: 'https://gimg.gilbut.co.kr/book/BN001958/rn_view_BN001958.jpg',
-        },
-        {
-          src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg',
+          src: 'https://cdn.inflearn.com/public/courses/324064/course_cover/037d8ce7-c4d1-4659-9929-b13131db5c3d/node.png',
         },
       ],
       Comments: [
@@ -68,10 +62,7 @@ export default (state = initialState, action: AnyAction) => {
         postAdded: true,
       };
     }
-    default: {
-      return {
-        ...state,
-      };
-    }
+    default:
+      return state;
   }
 };
