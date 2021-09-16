@@ -2,7 +2,7 @@ import { useMemo, useCallback } from 'react';
 import { Card, Avatar, Button } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { logOutAction } from 'reducers/user';
+import { logoutAction } from 'reducers/user';
 
 function UserProfile() {
   const actions = useMemo(
@@ -27,8 +27,8 @@ function UserProfile() {
 
   const dispatch = useDispatch();
 
-  const onLogOut = useCallback(() => {
-    dispatch(logOutAction());
+  const onLogout = useCallback(() => {
+    dispatch(logoutAction());
   }, []);
 
   return (
@@ -37,7 +37,7 @@ function UserProfile() {
         <Card.Meta avatar={avatar} title="MinJi" />
       </CardWrapper>
       <ButtonWrapper>
-        <Button onClick={onLogOut}>Logout</Button>
+        <Button onClick={onLogout}>Logout</Button>
       </ButtonWrapper>
     </>
   );

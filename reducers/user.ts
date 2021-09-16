@@ -22,19 +22,19 @@ const dummyUser = {
   Followers: [],
 };
 
-type LogInProps = {
+type LoginProps = {
   id: string;
   password: string;
 };
 
-export const logInAction = (data: LogInProps) => {
+export const loginAction = (data: LoginProps) => {
   return {
     type: LOG_IN,
     data,
   };
 };
 
-export const logOutAction = () => {
+export const logoutAction = () => {
   return {
     type: LOG_OUT,
   };
@@ -47,7 +47,7 @@ export const signUpAction = (data: null) => {
   };
 };
 
-export default (state = initialState, action: AnyAction) => {
+const reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case LOG_IN: {
       return {
@@ -75,3 +75,5 @@ export default (state = initialState, action: AnyAction) => {
       return state;
   }
 };
+
+export default reducer;

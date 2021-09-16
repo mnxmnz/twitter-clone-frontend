@@ -53,7 +53,7 @@ export const addPostAction = () => {
   };
 };
 
-export default (state = initialState, action: AnyAction) => {
+const reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case ADD_POST: {
       return {
@@ -66,3 +66,5 @@ export default (state = initialState, action: AnyAction) => {
       return state;
   }
 };
+
+export default reducer;
