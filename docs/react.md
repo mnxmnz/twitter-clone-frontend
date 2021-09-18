@@ -138,3 +138,23 @@ const style = useMemo(() => ({ marginTop: 10 }), []);
 📄 [React docs - 리스트와 Key](https://ko.reactjs.org/docs/lists-and-keys.html)
 
 📄 [Blog - (React) Array를 포함한 JSX, 그리고 key의 개념](https://velog.io/@ranisol/React-Array를-포함한-JSX-그리고-key의-개념)
+
+<br />
+
+#### map index key (anti pattern)
+
+- `index` 값을 `key` 로 사용하지 않기
+
+```tsx
+{
+  mainPosts.map((post, index) => <PostCard key={index} post={post} />);
+}
+```
+
+📄 [Blog - React 에서 배열컴포넌트 사용시 key 에 배열의 index는 가급적 사용하지 말자.!!](https://blog.woolta.com/categories/1/posts/210)
+
+📄 [Blog - key의 필요성, force rendering, index key 안티 패턴 제거](https://darrengwon.tistory.com/1258)
+
+📄 [Blog - [React] 반복되는 컴포넌트를 효율적으로 보여주기 - map 함수](https://chanhuiseok.github.io/posts/react-8/)
+
+📄 [Blog - [React] 배열의 index를 key로 쓰면 안되는 이유](https://medium.com/sjk5766/react-%EB%B0%B0%EC%97%B4%EC%9D%98-index%EB%A5%BC-key%EB%A1%9C-%EC%93%B0%EB%A9%B4-%EC%95%88%EB%90%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-3ce48b3a18fb)
