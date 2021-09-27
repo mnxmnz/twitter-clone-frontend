@@ -10,26 +10,43 @@
 
 ```
 📦components
+ ┣ 📂post
+ ┃ ┣ 📜PostCard.tsx
+ ┃ ┗ 📜PostForm.tsx
+ ┣ 📂profile
+ ┃ ┣ 📜FollowList.tsx
+ ┃ ┗ 📜NicknameEditForm.tsx
  ┣ 📜AppLayout.tsx
- ┣ 📜LoginForm.tsx
+ ┣ 📜SigninForm.tsx
  ┗ 📜UserProfile.tsx
- 📦docs
- ┗ 📜content.md
+📦hooks
+ ┗ 📜useInput.ts
 📦pages
- ┣ 📜_app.tsx
  ┣ 📜index.tsx
  ┣ 📜profile.tsx
- ┗ 📜signup.tsx
+ ┣ 📜signup.tsx
+ ┣ 📜_app.tsx
+ ┗ 📜_document.tsx
 📦public
+ ┗ 📂fonts
+ ┃ ┗ 📜NotoSansKR-Light.otf
+📦reducers
+ ┣ 📜index.ts
+ ┣ 📜post.ts
+ ┗ 📜user.ts
+📦store
+ ┗ 📜configureStore.ts
 📦styles
+ ┗ 📜global-style.ts
 📜.eslintrc
 📜.gitignore
+📜.stylelintrc
 📜next-env.d.ts
 📜next.config.js
-📜package-lock.json
 📜package.json
 📜README.md
 📜tsconfig.json
+📜yarn.lock
 ```
 
 <br />
@@ -51,11 +68,22 @@
 "devDependencies": {
   "@types/node": "^16.7.10",
   "@types/react": "^17.0.19",
+  "@types/react-redux": "^7.1.18",
+  "@types/styled-components": "^5.1.14",
+  "@typescript-eslint/eslint-plugin": "^4.30.0",
+  "@typescript-eslint/parser": "^4.30.0",
   "eslint": "^7.32.0",
   "eslint-plugin-import": "^2.24.2",
   "eslint-plugin-react": "^7.25.1",
   "eslint-plugin-react-hooks": "^4.2.0",
   "fork-ts-checker-webpack-plugin": "^6.3.3",
+  "next-redux-wrapper": "^6.0.2",
+  "react-redux": "^7.2.5",
+  "redux": "^4.1.1",
+  "redux-devtools-extension": "^2.13.9",
+  "styled-reset": "^4.3.4",
+  "stylelint": "^13.13.1",
+  "stylelint-config-concentric-order": "^4.0.1",
   "typescript": "^4.4.2"
 },
 ```
@@ -63,6 +91,12 @@
 <br />
 
 ## Getting Started
+
+#### Prerequisites
+
+```
+npm install --global yarn
+```
 
 #### Installation
 
@@ -79,11 +113,13 @@ cd Twitter-Clone-Frontend
 2. Install Project Packages
 
 ```
-npm install
+yarn
 ```
 
 3. Run the Project (Dev Mode)
 
 ```
-npm run dev
+yarn dev
+
+http://localhost:3000/
 ```

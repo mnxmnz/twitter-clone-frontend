@@ -55,10 +55,10 @@ const onChangeId = useCallback(e => {
 ```tsx
 <div style={{ marginTop: '10px' }}>
   <Button type="primary" htmlType="submit" loading={false}>
-    Login
+    Sign in
   </Button>
   <Link href="/signup">
-    <a>Signup</a>
+    <a>Sign up</a>
   </Link>
 </div>
 ```
@@ -70,10 +70,10 @@ const onChangeId = useCallback(e => {
 ```tsx
 <ButtonWrapper>
   <Button type="primary" htmlType="submit" loading={false}>
-    Login
+    Sign in
   </Button>
   <Link href="/signup">
-    <a>Signup</a>
+    <a>Sign up</a>
   </Link>
 </ButtonWrapper>;
 
@@ -103,10 +103,10 @@ const style = useMemo(() => ({ marginTop: 10 }), []);
 
 <div style={style}>
   <Button type="primary" htmlType="submit" loading={false}>
-    Login
+    Sign in
   </Button>
   <Link href="/signup">
-    <a>Signup</a>
+    <a>Sign up</a>
   </Link>
 </div>;
 ```
