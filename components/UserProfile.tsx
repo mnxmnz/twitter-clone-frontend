@@ -44,13 +44,13 @@ function UserProfile() {
 }
 
 const CardWrapper = styled(Card)`
-  padding: 5px;
   border: none;
+  padding: 5px;
 `;
 
 const ButtonWrapper = styled.div`
-  text-align: center;
   margin-top: 20px;
+  text-align: center;
 `;
 
 export default UserProfile;

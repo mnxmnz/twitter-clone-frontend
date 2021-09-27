@@ -55,8 +55,8 @@ const ListItemWrapper = styled(List.Item)`
 `;
 
 const LoadWrapper = styled.div`
-  text-align: center;
   margin: 10px 0;
+  text-align: center;
 `;
 
 export default FollowList;
