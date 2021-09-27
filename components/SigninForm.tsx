@@ -4,9 +4,9 @@ import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
 import useInput from 'hooks/useInput';
 import { useDispatch } from 'react-redux';
-import { loginAction } from 'reducers/user';
+import { signinAction } from 'reducers/user';
 
-function LoginForm() {
+function SigninForm() {
   const [id, onChangeId] = useInput('');
 
   const [password, onChangePassword] = useInput('');
@@ -14,7 +14,7 @@ function LoginForm() {
   const dispatch = useDispatch();
 
   const onSubmitForm = useCallback(() => {
-    dispatch(loginAction({ id, password }));
+    dispatch(signinAction({ id, password }));
   }, [id, password]);
 
   return (
@@ -31,11 +31,11 @@ function LoginForm() {
       </InputWrapper>
       <ButtonWrapper>
         <Button type="primary" htmlType="submit" loading={false}>
-          Login
+          Sign in
         </Button>
         <Link href="/signup">
           <Button loading={false}>
-            <a>Signup</a>
+            <a>Sign up</a>
           </Button>
         </Link>
       </ButtonWrapper>
@@ -56,4 +56,4 @@ const ButtonWrapper = styled.div`
   text-align: center;
 `;
 
-export default LoginForm;
+export default SigninForm;

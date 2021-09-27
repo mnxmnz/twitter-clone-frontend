@@ -2,21 +2,16 @@ import Link from 'next/link';
 import { Menu, Input, Row, Col } from 'antd';
 import styled from 'styled-components';
 import UserProfile from './UserProfile';
-import LoginForm from './LoginForm';
+import SigninForm from './SigninForm';
 import { useSelector } from 'react-redux';
+import { RootState } from 'reducers/index';
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
-type InitialState = {
-  user: {
-    isLoggedIn: boolean;
-  };
-};
-
 function AppLayout({ children }: LayoutProps) {
-  const isLoggedIn = useSelector((state: InitialState) => state.user.isLoggedIn);
+  const { isLoggedIn } = useSelector((state: RootState) => state.user);
 
   return (
     <div>
@@ -37,19 +32,12 @@ function AppLayout({ children }: LayoutProps) {
       </Menu>
       <Row>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile /> : <LoginForm />}
+          {isLoggedIn ? <UserProfile /> : <SigninForm />}
         </Col>
         <ChildrenWrapper xs={24} md={18}>
           {children}
         </ChildrenWrapper>
       </Row>
-      <Footer>
-        <Col xs={24} md={24}>
-          <a href="https://github.com/mnxmnz" target="_blank" rel="noreferrer noopener">
-            Made by MinJi
-          </a>
-        </Col>
-      </Footer>
     </div>
   );
 }
@@ -60,19 +48,6 @@ const SearchInput = styled(Input.Search)`
 
 const ChildrenWrapper = styled(Col)`
   padding: 20px;
-`;
-
-const Footer = styled(Row)`
-  position: fixed;
-  bottom: 0;
-  padding: 2px;
-  border-top: 1px solid #d9d9d9;
-  background-color: white;
-  min-width: 100%;
-  max-width: 100%;
-  text-align: center;
-  color: white;
-  font-weight: bold;
 `;
 
 export default AppLayout;

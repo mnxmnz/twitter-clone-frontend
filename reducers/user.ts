@@ -10,8 +10,8 @@ export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS' as const;
 export const initialState = {
   isLoggedIn: false,
   user: null,
-  signUpData: {},
-  loginData: {},
+  signupData: {},
+  signinData: {},
 };
 
 const dummyUser = {
@@ -22,12 +22,12 @@ const dummyUser = {
   Followers: [],
 };
 
-type LoginProps = {
+type SigninProps = {
   id: string;
   password: string;
 };
 
-export const loginAction = (data: LoginProps) => {
+export const signinAction = (data: SigninProps) => {
   return {
     type: LOG_IN,
     data,
@@ -40,7 +40,7 @@ export const logoutAction = () => {
   };
 };
 
-export const signUpAction = (data: null) => {
+export const signupAction = (data: null) => {
   return {
     type: SIGN_UP,
     data,
@@ -54,7 +54,7 @@ const reducer = (state = initialState, action: AnyAction) => {
         ...state,
         isLoggedIn: true,
         user: dummyUser,
-        loginData: action.data,
+        signinData: action.data,
       };
     }
     case LOG_OUT: {
@@ -62,13 +62,13 @@ const reducer = (state = initialState, action: AnyAction) => {
         ...state,
         isLoggedIn: false,
         user: null,
-        loginData: null,
+        signinData: null,
       };
     }
     case SIGN_UP: {
       return {
         ...state,
-        signUpData: action.data,
+        signupData: action.data,
       };
     }
     default:
