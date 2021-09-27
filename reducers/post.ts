@@ -47,10 +47,8 @@ const dummyPost = {
   Comments: [],
 };
 
-export const addPostAction = () => {
-  return {
-    type: ADD_POST,
-  };
+export const addPostAction = {
+  type: ADD_POST,
 };
 
 const reducer = (state = initialState, action: AnyAction) => {
