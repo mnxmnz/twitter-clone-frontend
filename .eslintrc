@@ -12,7 +12,7 @@
     "node": true,
     "browser": true
   },
-  "plugins": ["import", "react-hooks"],
+  "plugins": ["import", "react-hooks", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
