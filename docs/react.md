@@ -125,6 +125,8 @@ const style = useMemo(() => ({ marginTop: 10 }), []);
 
 #### JSX with Array (key)
 
+- 배열 안에서 JSX를 사용하면 항상 key를 작성하기
+
 ```tsx
 <Card
   actions={[
