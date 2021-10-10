@@ -1,12 +1,10 @@
-import { applyMiddleware, createStore, compose, Store } from 'redux';
-import { createWrapper, Context } from 'next-redux-wrapper';
+import { createWrapper } from 'next-redux-wrapper';
+import { Store, Middleware, compose, applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from 'reducers/index';
 
-const configureStore = (context: Context) => {
-  console.log(context);
-
-  const middlewares = [] as any;
+const configureStore = (): Store => {
+  const middlewares: Middleware[] = [];
 
   const enhancer =
     process.env.NODE_ENV === 'production'
@@ -18,7 +16,7 @@ const configureStore = (context: Context) => {
   return store;
 };
 
-const wrapper = createWrapper<Store>(configureStore as any, {
+const wrapper = createWrapper(configureStore, {
   debug: process.env.NODE_ENV === 'development',
 });
 

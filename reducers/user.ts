@@ -1,14 +1,15 @@
 import { AnyAction } from 'redux';
+import { UserState, SigninProps } from 'typings';
 
-export const LOG_IN = 'LOG_IN' as const;
-export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS' as const;
-export const LOG_IN_FAILURE = 'LOG_IN_FAILURE' as const;
+export const SIGN_IN = 'SIGN_IN' as const;
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS' as const;
+export const SIGN_IN_FAILURE = 'SIGN_IN_FAILURE' as const;
 export const LOG_OUT = 'LOG_OUT';
 export const SIGN_UP = 'SIGN_UP' as const;
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS' as const;
 
-export const initialState = {
-  isLoggedIn: false,
+export const initialState: UserState = {
+  isSignin: false,
   user: null,
   signupData: {},
   signinData: {},
@@ -22,14 +23,9 @@ const dummyUser = {
   Followers: [],
 };
 
-type SigninProps = {
-  id: string;
-  password: string;
-};
-
 export const signinAction = (data: SigninProps) => {
   return {
-    type: LOG_IN,
+    type: SIGN_IN,
     data,
   };
 };
@@ -47,12 +43,12 @@ export const signupAction = (data: null) => {
   };
 };
 
-const reducer = (state = initialState, action: AnyAction) => {
+const reducer = (state: UserState = initialState, action: AnyAction) => {
   switch (action.type) {
-    case LOG_IN: {
+    case SIGN_IN: {
       return {
         ...state,
-        isLoggedIn: true,
+        isSignin: true,
         user: dummyUser,
         signinData: action.data,
       };
@@ -60,7 +56,7 @@ const reducer = (state = initialState, action: AnyAction) => {
     case LOG_OUT: {
       return {
         ...state,
-        isLoggedIn: false,
+        isSignin: false,
         user: null,
         signinData: null,
       };
@@ -71,8 +67,11 @@ const reducer = (state = initialState, action: AnyAction) => {
         signupData: action.data,
       };
     }
-    default:
-      return state;
+    default: {
+      return {
+        ...state,
+      };
+    }
   }
 };
 
