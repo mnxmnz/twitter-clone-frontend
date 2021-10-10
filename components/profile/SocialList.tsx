@@ -1,18 +1,12 @@
 import { useMemo, useCallback } from 'react';
-import { Button, Card, List } from 'antd';
-import { StopOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-
-type ProfileProps = {
-  header: string;
-  data: { nickname: string }[];
-};
+import { List, Button, Card } from 'antd';
+import { StopOutlined } from '@ant-design/icons';
+import { ProfileProps } from 'typings';
 
 function FollowList({ header, data }: ProfileProps) {
   const grid = useMemo(() => ({ gutter: 4, xs: 2, md: 3 }), []);
-
   const listHeader = useMemo(() => <div>{header}</div>, []);
-
   const loadMore = useMemo(
     () => (
       <LoadWrapper>
@@ -22,10 +16,11 @@ function FollowList({ header, data }: ProfileProps) {
     [],
   );
 
-  const ItemComponent = useCallback(item => {
+  const actions = useMemo(() => [<StopOutlined key="stop" />], []);
+  const renderItem = useCallback(item => {
     return (
       <ListItemWrapper>
-        <Card actions={[<StopOutlined key="stop" />]}>
+        <Card actions={actions}>
           <Card.Meta description={item.nickname} />
         </Card>
       </ListItemWrapper>
@@ -40,7 +35,7 @@ function FollowList({ header, data }: ProfileProps) {
       loadMore={loadMore}
       bordered
       dataSource={data}
-      renderItem={ItemComponent}
+      renderItem={renderItem}
     />
   );
 }

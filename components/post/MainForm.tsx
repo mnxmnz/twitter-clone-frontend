@@ -1,8 +1,8 @@
-import { useCallback, useRef } from 'react';
-import { Button, Form, Input } from 'antd';
+import { useRef, useCallback } from 'react';
 import styled from 'styled-components';
+import { Form, Button, Input } from 'antd';
 import useInput from 'hooks/useInput';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'reducers/index';
 import { addPostAction } from 'reducers/post';
 
@@ -29,23 +29,17 @@ function PostForm() {
         maxLength={140}
         placeholder="어떤 일이 있었나요?"
       />
-      <div>
-        <input type="file" multiple hidden ref={imageInput} />
-        <Button onClick={onClickImageUpload}>Upload Image</Button>
-        <TwitButton type="primary" htmlType="submit">
-          Twit
-        </TwitButton>
-      </div>
-      <div>
-        {imagePaths.map(img => (
-          <div key={img} style={{ display: 'inline-block' }}>
-            <img src={img} style={{ width: '200px' }} alt={img} />
-            <div>
-              <Button>Delete</Button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <input type="file" multiple hidden ref={imageInput} />
+      <Button onClick={onClickImageUpload}>Upload Image</Button>
+      <TwitButton type="primary" htmlType="submit">
+        Twit
+      </TwitButton>
+      {imagePaths.map(img => (
+        <ImgWrapper key={img}>
+          <UserUploadImg src={img} alt={img} />
+          <Button>Delete</Button>
+        </ImgWrapper>
+      ))}
     </FromWrapper>
   );
 }
@@ -62,6 +56,14 @@ const TextAreaWrapper = styled(Input.TextArea)`
 
 const TwitButton = styled(Button)`
   float: right;
+`;
+
+const ImgWrapper = styled.div`
+  display: inline-block;
+`;
+
+const UserUploadImg = styled.img`
+  width: 200px;
 `;
 
 export default PostForm;
