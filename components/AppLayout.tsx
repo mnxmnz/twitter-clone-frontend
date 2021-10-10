@@ -1,20 +1,17 @@
 import Link from 'next/link';
-import { Menu, Input, Row, Col } from 'antd';
-import styled from 'styled-components';
 import UserProfile from './UserProfile';
 import SigninForm from './SigninForm';
+import styled from 'styled-components';
+import { Menu, Input, Row, Col } from 'antd';
 import { useSelector } from 'react-redux';
 import { RootState } from 'reducers/index';
-
-type LayoutProps = {
-  children: React.ReactNode;
-};
+import { LayoutProps } from 'typings';
 
 function AppLayout({ children }: LayoutProps) {
-  const { isLoggedIn } = useSelector((state: RootState) => state.user);
+  const { isSignin } = useSelector((state: RootState) => state.user);
 
   return (
-    <div>
+    <>
       <Menu mode="horizontal">
         <Menu.Item key="0">
           <Link href="/">
@@ -32,13 +29,13 @@ function AppLayout({ children }: LayoutProps) {
       </Menu>
       <Row>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile /> : <SigninForm />}
+          {isSignin ? <UserProfile /> : <SigninForm />}
         </Col>
         <ChildrenWrapper xs={24} md={18}>
           {children}
         </ChildrenWrapper>
       </Row>
-    </div>
+    </>
   );
 }
 
