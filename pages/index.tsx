@@ -1,18 +1,18 @@
 import AppLayout from '@components/AppLayout';
+import PostMainForm from '@components/post/MainForm';
+import PostContentCard from '@components/post/ContentCard';
 import { useSelector } from 'react-redux';
 import { RootState } from 'reducers/index';
-import PostForm from '@components/post/PostForm';
-import PostCard from '@components/post/PostCard';
 
 function Home() {
-  const { isLoggedIn } = useSelector((state: RootState) => state.user);
+  const { isSignin } = useSelector((state: RootState) => state.user);
   const { mainPosts } = useSelector((state: RootState) => state.post);
 
   return (
     <AppLayout>
-      {isLoggedIn && <PostForm />}
+      {isSignin && <PostMainForm />}
       {mainPosts.map(post => (
-        <PostCard key={post.id} post={post} />
+        <PostContentCard key={post.id} post={post} />
       ))}
     </AppLayout>
   );

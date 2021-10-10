@@ -1,15 +1,14 @@
 import { useState, useCallback } from 'react';
 import Head from 'next/head';
 import AppLayout from '@components/AppLayout';
-import { Form, Input, Checkbox, Button } from 'antd';
 import styled from 'styled-components';
+import { Form, Input, Checkbox, Button } from 'antd';
 import useInput from 'hooks/useInput';
 
 function Signup() {
   const [id, onChangeId] = useInput('');
   const [nickname, onChangeNickname] = useInput('');
   const [password, onChangePassword] = useInput('');
-
   const [passwordCheck, setPasswordCheck] = useState('');
   const [passwordError, setPasswordError] = useState(false);
 
@@ -36,7 +35,6 @@ function Signup() {
     if (password !== passwordCheck) {
       return setPasswordError(true);
     }
-
     if (!userTerm) {
       return setTermError(true);
     }

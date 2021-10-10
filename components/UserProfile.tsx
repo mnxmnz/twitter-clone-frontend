@@ -1,10 +1,15 @@
-import { useMemo, useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Card, Avatar, Button } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { logoutAction } from 'reducers/user';
 
 function UserProfile() {
+  const dispatch = useDispatch();
+  const onLogout = useCallback(() => {
+    dispatch(logoutAction());
+  }, []);
+
   const actions = useMemo(
     () => [
       <div key="twit">
@@ -24,12 +29,6 @@ function UserProfile() {
   );
 
   const avatar = useMemo(() => <Avatar>MJ</Avatar>, []);
-
-  const dispatch = useDispatch();
-
-  const onLogout = useCallback(() => {
-    dispatch(logoutAction());
-  }, []);
 
   return (
     <>

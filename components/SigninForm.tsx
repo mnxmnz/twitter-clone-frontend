@@ -1,18 +1,16 @@
 import { useCallback } from 'react';
 import Link from 'next/link';
-import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
+import { Form, Input, Button } from 'antd';
 import useInput from 'hooks/useInput';
 import { useDispatch } from 'react-redux';
 import { signinAction } from 'reducers/user';
 
 function SigninForm() {
   const [id, onChangeId] = useInput('');
-
   const [password, onChangePassword] = useInput('');
 
   const dispatch = useDispatch();
-
   const onSubmitForm = useCallback(() => {
     dispatch(signinAction({ id, password }));
   }, [id, password]);
