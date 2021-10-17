@@ -13,7 +13,10 @@ export const initialState = {
       content: '첫 번째 게시글',
       Images: [
         {
-          src: 'https://cdn.inflearn.com/public/courses/324064/course_cover/037d8ce7-c4d1-4659-9929-b13131db5c3d/node.png',
+          src: 'https://cdn.pixabay.com/photo/2017/02/22/04/00/dog-2088426_960_720.jpg',
+        },
+        {
+          src: 'https://cdn.pixabay.com/photo/2019/05/10/13/21/husky-4193503_960_720.jpg',
         },
       ],
       Comments: [
